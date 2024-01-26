@@ -26,9 +26,9 @@ document.querySelector("#student-form").addEventListener("submit", (e) => {
     e.preventDefault();
 
     // get form values
-    const firstName = document.querySelecto("#firstName").value;
-    const lastName = document.querySelecto("#lastName").value;
-    const rollNo = document.querySelecto("#rollNo").value;
+    const firstName = document.querySelector("#firstName").value;
+    const lastName = document.querySelector("#lastName").value;
+    const rollNo = document.querySelector("#rollNo").value;
 
     if(firstName == "" || lastName == "" || rollNo == "") {
         showAlert("Please fill in all fields!", "danger");
@@ -38,7 +38,7 @@ document.querySelector("#student-form").addEventListener("submit", (e) => {
             const list = document.querySelector("#student-list");
             const row = document.createElement("tr");
     
-            row. innerHTML = `
+            row.innerHTML = `
                 <td>${firstName}</td>
                 <td>${lastName}</td>
                 <td>${rollNo}</td>
@@ -57,8 +57,9 @@ document.querySelector("#student-form").addEventListener("submit", (e) => {
             selectedRow.children[2].textContent = rollNo;
             selectedRow = null;
             showAlert("Student Info edited", "info");
-        }
-        clearField();
+        }; 
+
+        clearFields();
     }
 });
 
@@ -70,7 +71,8 @@ document.querySelector("#student-list").addEventListener("click", (e) => {
         document.querySelector("#firstName").value = selectedRow.children[0].textContent;
         document.querySelector("#lastName").value = selectedRow.children[1].textContent;
         document.querySelector("#rollNo").value = selectedRow.children[2].textContent;
-    }
+    };
+});
 
 // del data 
 document.querySelector("#student-list").addEventListener("click", (e) => {
